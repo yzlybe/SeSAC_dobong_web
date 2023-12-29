@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 구성 태그</title>
+</head>
+<body>
+    <form>
+        <label> <!--label 태그는 글씨와 태그를 묶어준다. 웹 접근성에 도움. 지키는게 좋음.-->
+            ID: <input type="text" placeholder="id를 입력해주세요" />
+        </label>
+        <br />
+        <label for="pw"> <!--for는 같은 id를 가진 부분을 묶어줌-->
+            PW:
+        </label>
+        <input type="password" id="pw"/>
+        <br />
+        <!-- 이메일 유효성 검증을 해준다 -->
+        email: <input type="email" value="allie"> <!--palceholder는 반투명하게 있는 창, value는 실제로 들어가있어 지워야하는 값-->
+        <!-- input button 그냥 눌리는거 input submit 제출용(새로고침이 된다) 그냥 button=input submit(스타일링이 용이)-->
+        <input type="button" value="로그인" />
+        <input type="submit" value="로그인" />
+        <button><span style="color: blue;">로</span>그인</button>
+        <button><span style="color: brown;">로</span>그인</button>
+
+        <input type="color">
+        <input type="file">
+        <input type="number">
+        <input type="date">
+        <input type="range">
+        <!-- input 태그는 한 줄, textarea는 여러 줄, cols한줄당 글자수 rows는 글자 줄수= 글자수 제한 -->
+        <textarea cols="30" rows="10"></textarea>
+    <hr />
+    <h5>다음 중 input의 type이 아닌 것은>? (모두 고르시오)</h5>
+    <label> <!--label로 묶었기 때문에 글자를 눌러도 체크가 된다-->
+        <input type="checkbox"> alt
+    </label>
+    <label>
+        <input type="checkbox"> text
+    </label>
+    <label>
+        <input type="checkbox"> image
+    </label>
+    <label>
+        <input type="checkbox"> click
+    </label>
+    <label>
+        <input type="checkbox"> date
+    </label>
+
+    <h5>다음 중 img 태그의 속성인 것은?</h5>
+    <input type="radio" name="img" id="alt" checked>
+    <label for="alt">alt</label> <!--for는 id와 세트-->
+    <input type="radio" name="img" id="bread">
+    <label for="bread">bread</label>
+    <input type="radio" name="img" id="href">
+    <label for="href">href</label>
+    <input type="radio" name="img" id="mouse">
+    <label for="mouse">mouse</label>
+    <input type="radio" name="img" id="dragon" disabled>
+    <label for="dragon">dragon</label>
+    <br />
+    <select>
+        <optgroup label="빨간꽃">
+            <option value="장미" disabled>장미</option>
+            <option value="동백꽃">동백꽃</option>
+            <option value="튤립">튤립</option>
+        </optgroup>
+        <optgroup label="하얀꽃">
+            <option value="벚꽃">벚꽃</option>
+            <option value="매화">매화</option>
+        </optgroup>
+    </select>
+
+
+    </form>
+    
+</body>
+</html>
