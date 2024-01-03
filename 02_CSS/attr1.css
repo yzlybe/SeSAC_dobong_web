@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+/* font family 정보 없음 */
+
+@font-face {
+    font-family: 'OG_Renaissance_Secret-Rg';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/OG_Renaissance_Secret-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+.font-link {
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+.font-import {
+    font-family: 'Bagel Fat One', monospace;
+}
+
+.noonnu {
+    font-family: 'OG_Renaissance_Secret-Rg', sans-serif;
+
+}
+
+.sentences {
+    font-weight: 700;
+    font-size: 16px;
+    /* font-size: 1rem;
+    font-size: 1em; */
+    
+    /* text-align */
+    text-align: left;
+    text-align: right;
+    text-align: center;
+
+
+    text-decoration: line-through;
+    text-decoration: underline;
+    text-decoration: overline;
+    text-decoration: none;
+
+    line-height: 32px;
+
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    /* 색깔 지정 방법 */
+    /* 
+    1. 색깔 이름 작성 : red, black, ...
+    2. rgb(-, -, -) -에는 0~255까지의 숫자가 올 수 있음
+        투명도는 rgba() a값은 0~1 소수
+    3. #------ : #c358ab
+        16진수로 이루어진 rgb값 (0~9와 a~f로 이루어진 수) */
+}
+

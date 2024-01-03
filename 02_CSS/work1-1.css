@@ -1,0 +1,8 @@
+@import url('./work1-1_import.css');
+p {
+    background-color: red; color: white;
+}
+
+h3 {
+    background-color: aqua; color: gray;
+}
