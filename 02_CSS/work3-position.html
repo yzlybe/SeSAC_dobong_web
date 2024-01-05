@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애벌레 만들기</title>
+    <style>
+        .container {
+            width: 480px;
+            height: 480px;
+            position: relative;
+        }
+
+        .container img {
+            position: absolute;
+            bottom: 0;
+            z-index: 7;
+        }
+
+        .larva {
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .l_body {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: blue;
+        }
+        
+        .body1 {
+            background-color: #aaa;
+            z-index: 1;
+            top: 150px;
+            left: 140px;
+        }
+        
+                .l_eye_b {
+                    width: 20px;
+                    height: 20px;
+                    background-color: black;
+                    z-index: 3;
+                    top: 30px;
+                    left: 20px;
+                }
+        
+                .l_eye_w {
+                    width: 40px;
+                    height: 40px;
+                    background-color: white;
+                    z-index: 2;
+                    top: 20px;
+                    left: 20px;
+                }
+
+        .body2 {
+            background-color: #bbb;
+            z-index: 4;
+            top: 100px;
+            left: 200px;
+        }
+        .body3 {  
+            background-color: #ccc;
+            z-index: 5;
+            top: 60px;
+            left: 220px;
+        }
+        .body4 {
+            background-color: #ddd;
+            z-index: 6;
+            top: 20px;
+            left: 250px;
+        }
+        .body5 {
+            background-color: #eee;
+            z-index: 8;
+            bottom: 30px;
+            left: 300px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="larva l_body body1">
+            <div class="larva l_eye_b"></div>
+            <div class="larva l_eye_w"></div>
+        </div>
+        <div class="larva l_body body2"></div>
+        <div class="larva l_body body3"></div>
+        <div class="larva l_body body4"></div>
+        <div class="larva l_body body5"></div>
+        <img src="./img/grass_480.png" alt="grass_480">
+    </div>
+</body>
+</html>

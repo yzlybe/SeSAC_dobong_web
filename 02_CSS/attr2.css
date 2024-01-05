@@ -76,3 +76,76 @@
 .em {
     font-size: 2em;
 }
+
+.square {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    background-color: blue;
+}
+
+.border {
+    background-color: yellow;
+    /* 단축 속성 : 굵기 모양 색깔 순으로 쓰면 된다 */
+    /* border: 3px solid red; */
+    border-color: blue orange purple red;
+    border-style: dotted;
+    border-width: 3px;
+    border-right-width: 5px;
+}
+
+.rounded {
+    background-color: yellowgreen;
+    /* 원을 만들고 싶으면 폭높이의 반 값을 주면 된다 */
+    border-radius: 5px 10px 20px 40px;
+    border-radius: 5px 40px;
+}
+
+.box-sizing {
+    padding: 20px;
+    border: 15px solid red;
+    background-color: orange;
+}
+
+/* width+padding+border 안에서 설정 */
+.content-box {
+    box-sizing: content-box;
+}
+
+/* width 안에서 설정 */
+.border-box {
+    box-sizing: border-box;
+}
+
+/* 자리+속성 모두 사라짐 */
+    .d-none {
+    display: none;
+    background-color: red;
+    }
+/* 속성만 사라짐 */
+    .invisible {
+    visibility: hidden;
+    background-color: orangered;
+    }
+/* 자리 속성 남아있고 보이지만 않음 */
+    .opacity-0 {
+    opacity: 0.5;
+    background-color: tomato;
+    }
+
+    .overflow-hidden {
+        overflow: hidden;
+    }
+
+    .overflow-auto {
+        overflow: auto;
+    }
+
+    .overflow-scroll {
+        overflow: scroll;
+    }
+
+    .overflow-visible {
+        overflow: visible;
+    }

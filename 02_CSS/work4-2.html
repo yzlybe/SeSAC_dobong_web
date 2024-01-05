@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소 쌓임 순서 및 z-index</title>
+    <style>
+        div {
+            border: 1px solid black;
+            height: 100px;
+            width: 100px;
+            opacity: 0.9;
+        }
+        .container {
+            position: relative;
+            height: 500px;
+            width: 500px;
+        }
+        .item1 {
+            position: absolute;
+            background-color: aqua;
+            /* z-index: 3; */
+            z-index: 3;
+        }
+        .item2 {
+            position: absolute;
+            background-color: bisque;
+            top: 30px;
+            left: 30px;
+            /* z-index: 2; */
+            z-index: 1;
+        }
+        .item3 {
+            position: absolute;
+            background-color: blueviolet;
+            top: 60px;
+            left: 60px;
+            /* z-index: 1; */
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1">1</div>
+        <div class="item2">2</div>
+        <div class="item3">3</div>
+    </div>
+</body>
+</html>
