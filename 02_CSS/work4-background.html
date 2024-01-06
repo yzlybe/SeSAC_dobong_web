@@ -4,8 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>background 이용 프로필 만들기</title>
+    <style>
+        .profile {
+            border-radius: 50%;
+        }
+
+        .border {
+            position: relative;
+            display: flex;
+            background: linear-gradient(45deg, yellow 30%, red, #cc03cc 70%);
+            width: 500px;
+            height: 500px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border: 10px solid white;
+            background-image: url(https://cdn.pixabay.com/photo/2017/06/17/18/35/beach-2413081_640.jpg);
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="profile border">    
+        <img src="https://cdn.pixabay.com/photo/2022/01/06/14/19/bird-6919589_1280.png" alt="macaw" class="profile image">    
+    </div>
 </body>
 </html>

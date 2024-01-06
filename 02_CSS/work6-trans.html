@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 3개 연달아 나열하기</title>
+    <style>
+        .container {
+            background-color: #d8f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 95vw;
+            height: 95vh;
+        }
+
+        .beach {
+            width: 400px;
+            height: 300px;
+            cursor: pointer;
+            transform: skewY(30deg);
+            transition-duration: 1s;
+            position: relative;
+        }
+        .beach:hover {
+            transform: skewY(0deg);
+            z-index: 4;
+        }
+
+        .beach1 {
+            left: 200px;
+            z-index: 3;
+        }
+
+        .beach2 {
+            z-index: 2;
+        }
+        
+        .beach3 {
+            right: 200px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./img/beach1_720.jpg" alt="beach1" class="beach beach1">
+        <img src="./img/beach2_720.jpg" alt="beach2" class="beach beach2">
+        <img src="./img/beach3_480.jpg" alt="beach3" class="beach beach3">
+    </div>
+</body>
+</html>
