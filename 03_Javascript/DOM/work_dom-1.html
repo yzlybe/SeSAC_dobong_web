@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 내용 변경해보기</title>
+</head>
+<body>
+    <div>민트 초코는 <span>맛있다 >_<</span></div>
+
+    <script>
+        let mincho = document.querySelector('span');
+        mincho.innerHTML = '맛없다 ㅡㅡ;;';
+        mincho.style = 'color: red; font-weight: bold;';
+
+
+
+/* 해답
+        const div = document.querySelector('div');
+        // const div = document.getElementsByTagName('div')[0]; //+ [0]을 입력하지 않으면 HTMLCollection 값으로 나온다. //!! 요소 추가는 요소만 타겟 가능하다. querySelectorAll이나 ~ByClass,Tag 등은 배열로 나오기 때문에 [0]으로 요소를 타게팅해줘야 배열 추가가 가능해진다.
+        const span = document.querySelector('span');
+        // const span = document.getElementsByTagName('span')[0];
+
+        span.textContent = '맛없다 ㅡㅡ;;'; // span.innerText = '맛없다ㅡㅡ;;';
+        span.style.color = 'red';
+        span.style.fontWeight = '700';
+*/
+    </script>
+</body>
+</html>
