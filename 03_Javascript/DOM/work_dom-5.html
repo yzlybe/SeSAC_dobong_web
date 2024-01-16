@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>댓글 등록하기</title>
+  </head>
+  <body>
+    <h1>댓글 등록하기</h1>
+    <form>
+      <label for="userid">아이디</label>
+      <input type="text" id="userid" name="userid" />
+      <label for="comment">댓글</label>
+      <input type="text" id="comment" name="comment" />
+      <button type="submit">등록</button>
+    </form>
+    <ul class="comment-list"></ul>
+
+    <script>
+      // TODO: 아래 조건을 만족하도록 js 파일을 수정하기
+      // 문제
+      // - [ ] 아이디 input과 댓글 input을 입력하고 [등록] 버튼을 누르면, 댓글이 추가됩니다.
+      //     - 폼을 "제출"헸을 때에 해당하는 이벤트는 무엇인가요?
+      // - [ ] 아이디 값과 댓글 값을 가져와야 합니다.
+      // - [ ] <li> 태그를 새로 만들고, "아이디 - 댓글내용" 형식이 되도록 설정합니다.
+      // - [ ] <ul class="comment-list"> 태그에 li를 추가합니다.
+      // - [ ] 아이디 input과 댓글 input을 초기화해야 합니다.
+
+      let inputUserid = document.querySelector('#userid'); // : == 'input[name='userid']'
+      // let inputUseridValue = document.querySelector('#userid').value; // : 연결이 끊겨 단순한 문자열 밖에 되지 않음. 따라서 input 요소에 영향을 받지 않고, 아래의 input 초기화를 해도 초기화가 되지 않는다.
+      let inputComment = document.querySelector('#comment'); //? 각각 byName이랑 byID로 받아오면 input.value가 인식하나?
+      let commentList = document.querySelector('.comment-list');
+    
+    //   let clickSubmit = document.querySelector('button');
+    //   clickSubmit.addEventListener('click', function() {
+      let clickSubmit = document.querySelector('html');
+        clickSubmit.addEventListener('submit', function() {
+            let addText = document.createElement('li');
+            addText.innerHTML = `<strong>${inputUserid.value}</strong> - ${inputComment.value}`;  //!! (a.b) : a라는 요소의 b라는 속성이라는 뜻
+            commentList.appendChild(addText);
+            inputUserid.value = '';
+            inputComment.value = '';
+            event.preventDefault(); //!! submit 시 새로고침을 막아준다......
+        })
+
+    console.log(clickSubmit)
+
+
+/* 해답
+
+// button 처리, submit 이벤트 처리 모두 가능
+const form = document.querySelector('form');
+const list = document.querySelector('.comment-list');
+
+// form 요소의 button을 클릭하여 폼을 "제출"했을 때,
+form.addEventListener('submit', function (e) {
+  e.preventDefault(); // 폼이 제출되고 새로고침 되는 것을 막음
+
+  const userid = document.querySelector('input[name="userid"]'); // userid 폼 요소에 접근하기
+  const comment = document.querySelector('input[name="comment"]'); // comment 폼 요소에 접근하기
+  // const userid = form.elements.userid;
+  // const comment = form.elements.comment;
+
+  const newComment = document.createElement('li'); // li 태그를 생성하기
+  newComment.innerHTML = `<b>${userid.value}</b> - ${comment.value}`; // 태그 내용으로 "Id - comment" 를 적어주기
+  list.append(newComment); // .comment-list 요소에 위에서 만든 li 태그 추가하기
+
+  userid.value = ''; // userid 입력창 초기화
+  comment.value = ''; // comment 입력창 초기화
+
+  // useridBalue = ''; // input 요소의 값에 변화가 x
+});
+
+*/
+
+    </script>
+  </body>
+</html>
