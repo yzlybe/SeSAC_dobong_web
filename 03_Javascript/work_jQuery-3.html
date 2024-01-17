@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <title>내 스케줄</title>
+    <style>
+        h1 {
+            color: green;
+            text-align: center;
+        }
+        td {
+            height: 50px;
+            width: 50px;
+            text-align: center;
+        }
+        td:not(.day td):hover {
+            cursor: pointer;
+        }
+        .sun {
+            color: red;
+        }
+        .sat {
+            color: blue;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="comment">
+        날짜 : <input type="text" id="date">
+        <br />
+        내용 : <input type="text" id="content">
+        <br />
+        <button>작성</button>
+    </div>
+    <div id="calendar">
+    <h1>2024년 1월</h1>
+    <table align="center">
+        <tr class="day">
+            <td class="sun">日</td>
+            <td>月</td>
+            <td>火</td>
+            <td>水</td>
+            <td>木</td>
+            <td>金</td>
+            <td class="sat">土</td>
+        </tr>
+        <tr>
+            <td class="sun"></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td class="sat">6</td>
+        </tr>
+        <tr>
+            <td class="sun">7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td class="sat">13</td>
+        </tr>
+        <tr>
+            <td class="sun">14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td class="sat">20</td>
+        </tr>
+        <tr>
+            <td class="sun">21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td class="sat">27</td>
+        </tr>
+        <tr>
+            <td class="sun">28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td></td>
+            <td></td>
+            <td class="sat"></td>
+        </tr>
+    </table>
+    </div>
+    <script>
+        //? 왜 p를 넣는가? ? date와 content 분리를 위해?
+        //? 상위요소 .day를 선택해서 하위 td에 클릭해서 입력되는 속성을 자우려면? //!! 'td:not(.day td)' ???아까도 했는데 아깐 왜 안됐던거지? css에도 잘 적용됐네...왜지 진짜
+        let select; //!! 전역변수는 함수 밖에 있어서 전체에 영향을 미치는 변수. 함수 내에서만 인식되는 함수 안의 변수는 지역변수라고 한다.
+        $('td:not(.day td)').on('click', function() {
+            $('#date').val($(this).text());
+            select = this;
+        })
+
+        $('button').on('click', function() {
+            $(select).html(`${$('#date').val()}<br>${$('#content').val()}`);
+        })
+       
+        $('button').on('click', function() {
+            $('#date').val('');
+            $('#content').val('');
+        })
+    </script>
+</body>
+
+<!-- 해답
+    
+    
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+    ></script>
+    <title>내 스케줄</title>
+    <style>
+      td {
+        width: 100px;
+        height: 100px;
+        color: black;
+      }
+      tr > td:first-child,
+      tr > th:first-child {
+        color: red;
+      }
+      tr > td:last-child,
+      tr > th:last-child {
+        color: blue;
+      }
+      td > p:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      날짜 : <input type="text" id="date" readonly /> <br />
+      내용 : <input type="text" id="content" /> <br />
+      <button type="button" onclick="writeSchedule();">작성</button> <br />
+    </div>
+    <div style="font-size: 2em; color: green; text-align: center">
+      2022년 7월
+    </div>
+
+    <br />
+
+    <table align="center" width="500" style="text-align: center">
+      <tr>
+        <th>日</th>
+        <th>月</th>
+        <th>火</th>
+        <th>水</th>
+        <th>木</th>
+        <th>金</th>
+        <th>土</th>
+      </tr>
+      <tr>
+        <td><p></p></td>
+        <td><p></p></td>
+        <td><p></p></td>
+        <td><p></p></td>
+        <td><p></p></td>
+        <td><p>1</p></td>
+        <td><p>2</p></td>
+      </tr>
+
+      <tr>
+        <td><p>3</p></td>
+        <td><p>4</p></td>
+        <td><p>5</p></td>
+        <td><p>6</p></td>
+        <td><p>7</p></td>
+        <td><p>8</p></td>
+        <td><p>9</p></td>
+      </tr>
+      <tr>
+        <td><p>10</p></td>
+        <td><p>11</p></td>
+        <td><p>12</p></td>
+        <td><p>13</p></td>
+        <td><p>14</p></td>
+        <td><p>15</p></td>
+        <td><p>16</p></td>
+      </tr>
+      <tr>
+        <td><p>17</p></td>
+        <td><p>18</p></td>
+        <td><p>19</p></td>
+        <td><p>20</p></td>
+        <td><p>21</p></td>
+        <td><p>22</p></td>
+        <td><p>23</p></td>
+      </tr>
+      <tr>
+        <td><p>24</p></td>
+        <td><p>25</p></td>
+        <td><p>26</p></td>
+        <td><p>27</p></td>
+        <td><p>28</p></td>
+        <td><p>29</p></td>
+        <td><p>30</p></td>
+      </tr>
+      <tr>
+        <td><p>31</p></td>
+        <td><p></p></td>
+        <td><p></p></td>
+        <td><p></p></td>
+        <td><p></p></td>
+        <td><p></p></td>
+        <td><p></p></td>
+      </tr>
+    </table>
+
+    <script>
+      // this를 기억하기 위한 전역변수
+      let target;
+      // 
+      $('td > p').on('click', function () {
+        console.log(this);
+        // 날짜만 가져오려면 this의 text() 이용
+        console.log($(this).text());
+
+        // 날짜 input 선택
+        // let date = $(this).text();
+        $('#date').val($(this).text());
+
+        // target에 this를 기억해두기
+        target = this;
+      });
+
+      function writeSchedule() {
+        let content = $('#content').val();
+
+        // 요소 추가
+        $(target)
+          .parent()
+          .append('<span>' + content + '</span><br />');
+        // $(target.parentNode).append(~~)
+
+        // 초기화
+        $('#content').val('');
+        $('#date').val('');
+      }
+    </script>
+  </body>
+</html>
+ -->
+</html>
