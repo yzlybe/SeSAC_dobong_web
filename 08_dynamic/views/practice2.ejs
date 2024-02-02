@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습2 - axios post 로그인</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- 해답 -->
+    <!-- <style>
+      .success {
+        color: blue;
+        font-weight: 700;
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+
+      label {
+        display: flex;
+      }
+
+      label span {
+        width: 80px;
+      }
+    </style> -->
+  </head>
+  <body>
+    
+    <form name="login">
+      <label> ID : <input type="text" name="id" required /> </label>
+      <br />
+      <label> PW : <input type="password" name="pw" required /> </label>
+      <br />
+      <button type="button" onclick="axiosLogin()">로그인</button>
+      <br />
+      <div class="result"></div>
+    </form>
+    <script>
+      const resultBox = document.querySelector(".result");
+      async function axiosLogin() {
+        const form = document.forms["login"];
+        const data = {
+          id: form.id.value,
+          pw: form.pw.value,
+        };
+
+        try {
+          const response = await axios({
+            method: "post",
+            url: "/practiceLogin",
+            data: data,
+          });
+          if (response.data == "success") {
+            resultBox.textContent = "로그인 성공";
+            resultBox.style.color = "blue";
+          } else {
+            resultBox.textContent = "로그인 실패";
+            resultBox.style.color = "red";
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    </script>
+   
+
+    <!-- 해답 -->
+    <!-- <form name="login">
+      <label
+        ><span>아이디</span>
+        <input type="text" name="userId" required />
+      </label>
+      <br />
+      <label
+        ><span>비밀번호</span>
+        <input type="password" name="userPw" required />
+      </label>
+      <br />
+      <button type="button" onclick="clickLogin()">로그인</button>
+    </form>
+    <div class="message"></div>
+    <script>
+      const form = document.forms["login"];
+      const message = document.querySelector(".message");
+      function clickLogin() {
+        // 유효성 검증(required 표시된 항목에 대해서 체크)
+        console.log(form.userId.checkValidity());
+        if (!form.userId.checkValidity() || !form.userPw.checkValidity()) {
+          message.textContent = "아이디와 비밀번호는 필수 값입니다.";
+          return;
+        }
+
+        const data = {
+          id: form.userId.value,
+          password: form.userPw.value,
+        };
+        axios({
+          method: "POST",
+          url: "/axios-practice2",
+          data: data,
+        })
+          .then(function (response) {
+            console.log(response.data);
+            // message : 성공 시 파란 글자, 실패 시 빨간 글자
+            if (response.data.isSuccess) {
+              // 로그인 성공
+              message.textContent = `${response.data.userInfo.id}님 환영합니다.`;
+              message.classList.add("success");
+              message.classList.remove("error");
+            } else {
+              // 로그인 실패
+              message.textContent = `로그인 실패, 아이디 또는 패스워드 오류`;
+              message.classList.remove("success");
+              message.classList.add("error");
+            }
+          })
+          .catch((err) => console.log(err));
+      } -->
+    </script>
+  </body>
+</html>

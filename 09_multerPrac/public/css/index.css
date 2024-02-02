@@ -1,0 +1,7 @@
+label {
+  display: flex;
+}
+
+label span {
+  width: 100px;
+}

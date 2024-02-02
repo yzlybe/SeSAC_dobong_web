@@ -1,0 +1,31 @@
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titleName {
+  color: cornflowerblue;
+}
+
+.resultProfile {
+  max-width: 400px;
+  max-height: 400px;
+  box-shadow: 0 0 20px pink;
+}
+
+.resultInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resultInfo div {
+  display: flex;
+}
+
+.resultInfo div span {
+  width: 200px;
+  height: 2rem;
+  text-align: center;
+}

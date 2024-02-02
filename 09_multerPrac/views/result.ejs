@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 - 파일 업로드 마이페이지</title>
+    <link rel="stylesheet" href="/static/css/result.css" />
+  </head>
+  <body>
+    <div class="result">
+      <h1>
+        <span class="titleName"><%=userInfo.userName%></span>님 마이페이지
+      </h1>
+      <br />
+      <img src="<%=userProfile%>" alt="유저 프로필" class="resultProfile" />
+      <br />
+      <div class="resultInfo">
+        <div>
+          <span>아이디</span><span class="resultId"><%=userInfo.userId%></span>
+        </div>
+        <div>
+          <span>비밀번호</span
+          ><span class="resultPw"><%=userInfo.userPw%></span>
+        </div>
+        <div>
+          <span>이름</span
+          ><span class="resultName"><%=userInfo.userName%></span>
+        </div>
+        <div>
+          <span>나이</span><span class="resultAge"><%=userInfo.userAge%></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

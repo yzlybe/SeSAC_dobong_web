@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 - 파일 업로드</title>
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <label
+        ><span>아이디</span><input type="text" name="userId" id="userId"
+      /></label>
+      <br />
+      <label
+        ><span>비밀번호</span><input type="password" name="userPw" id="userPw"
+      /></label>
+      <br />
+      <label
+        ><span>이름</span><input type="text" name="userName" id="userName"
+      /></label>
+      <br />
+      <label
+        ><span>나이</span><input type="text" name="userAge" id="userAge"
+      /></label>
+      <br />
+      <label><span>프로필사진</span><input type="file" name="profile" /></label>
+      <br />
+      <input type="reset" name="reset" value="리셋" />
+      <input type="submit" name="register" value="회원가입" />
+    </form>
+  </body>
+</html>
