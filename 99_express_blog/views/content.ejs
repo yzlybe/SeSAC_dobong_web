@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- head 인클루드 -->
+    <%-include('./include/head')%>
+    <style>
+      h1,
+      div {
+        text-align: center;
+      }
+
+      p {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header 인클루드 -->
+    <%-include('./include/header')%>
+    <!-- 
+ {
+    contentID: 1,
+    title: "글 제목1",
+    content: "글 내용1",
+    img: null,
+  }
+     -->
+    <h1><%=title%></h1>
+    <div>
+      <p><%=content%></p>
+      <%if(img){%>
+      <img src="/<%=img%>" alt="<%=contentID%>번 글 이미지" width="400" />
+      <%}%>
+    </div>
+
+    <!-- 
+      /r CR
+      /n LF
+      /r/n CRLF
+     -->
+  </body>
+</html>
