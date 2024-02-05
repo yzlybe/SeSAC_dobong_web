@@ -101,7 +101,7 @@ const upload = multer({
       done(
         null,
         path.basename(file.originalname, ext) +
-          Date.now(/*+ 1970년 1월 1일 0시 0분 0초 부터의 밀리초*/) +
+          Date.now() /*+ 1970년 1월 1일 0시 0분 0초 부터의 밀리초*/ +
           ext
       );
     },
