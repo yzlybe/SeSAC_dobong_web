@@ -1,0 +1,32 @@
+-- join 및 외래키 엑셀 파일 옮기기
+CREATE DATABASE univ;
+use univ;
+CREATE TABLE univ_A(
+id INT PRIMARY KEY,
+name VARCHAR(10) NOT NULL,
+age INT NOT NULL
+);
+CREATE TABLE univ_B(
+id INT PRIMARY KEY,
+name VARCHAR(10) NOT NULL,
+age INT NOT NULL
+);
+CREATE TABLE subject(
+    sub_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT NOT NULL,
+    subject ENUM('네트워크', '알고리즘', 'C언어', '캡스톤', '웹프레임워크') NOT NULL
+);
+
+INSERT INTO univ_A VALUES (20115544, 'a', 34);
+INSERT INTO univ_A VALUES (20156677, 'b', 31);
+INSERT INTO univ_A VALUES (20227755, 'c', 25);
+INSERT INTO univ_A VALUES (20232223, 'd', 23);
+INSERT INTO univ_A VALUES (20201144, 'e', 23);
+INSERT INTO univ_A VALUES (20145145, 'f', 30);
+INSERT INTO univ_A VALUES (20180919, 'g', 26);
+
+INSERT INTO univ_B VALUES (2022091994, 'h', 29);
+INSERT INTO univ_B VALUES (2020101021, 'i', 23);
+INSERT INTO univ_B VALUES (2018187566, 'j', 26);
+
+
