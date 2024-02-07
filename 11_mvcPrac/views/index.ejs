@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mvc 실습</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+      label {
+        display: flex;
+      }
+      label span {
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <form name="login">
+      <label
+        ><span>아이디</span>
+        <input type="text" name="userId" required />
+      </label>
+      <br />
+      <label
+        ><span>비밀번호</span>
+        <input type="password" name="userPw" required />
+      </label>
+      <br />
+      <button type="button" onclick="clickLogin()">로그인</button>
+    </form>
+    <div class="result"></div>
+    <script>
+      const form = document.forms["login"];
+      const result = document.querySelector(".result");
+      function clickLogin() {
+        console.log(form.userId.checkValidity());
+        if (!form.userId.checkValidity() || !form.userPw.checkValidity()) {
+          result.textContent = "아이디와 비밀번호는 필수 값입니다.";
+          return;
+        }
+
+        const data = {
+          id: form.userId.value,
+          pw: form.userPw.value,
+        };
+        axios({
+          method: "POST",
+          url: "/login",
+          data: data,
+        })
+          .then(function (res) {
+            console.log(res.data);
+            if (res.data.isSuccess) {
+              result.textContent = `로그인 성공`;
+              result.style.color = "blue";
+            } else {
+              result.textContent = `로그인 실패`;
+              result.style.color = "red";
+            }
+          })
+          .catch((err) => console.log(err));
+      }
+    </script>
+  </body>
+</html>
