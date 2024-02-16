@@ -26,7 +26,8 @@
         <input type="password" name="userPw" required />
       </label>
       <br />
-      <button type="button" onclick="clickLogin()">로그인</button>
+      <button type="button" onclick="clickLogin()">로그인(실습1)</button>
+      <button type="button" onclick="clickLogin2()">로그인(실습2)</button>
     </form>
     <div class="result"></div>
     <script>
@@ -55,6 +56,37 @@
               result.style.color = "blue";
             } else {
               result.textContent = `로그인 실패`;
+              result.style.color = "red";
+            }
+          })
+          .catch((err) => console.log(err));
+      }
+
+      // 실습2
+
+      function clickLogin2() {
+        console.log(form.userId.checkValidity());
+        if (!form.userId.checkValidity() || !form.userPw.checkValidity()) {
+          result.textContent = "아이디와 비밀번호는 필수 값입니다.";
+          return;
+        }
+
+        const data = {
+          id: form.userId.value,
+          pw: form.userPw.value,
+        };
+        axios({
+          method: "POST",
+          url: "/login2",
+          data: data,
+        })
+          .then(function (res) {
+            console.log(res.data);
+            if (res.data.isSuccess) {
+              result.textContent = `${res.data.name}님 환영합니다`;
+              result.style.color = "blue";
+            } else {
+              result.textContent = `아이디 또는 비밀번호를 잘못 입력했습니다.`;
               result.style.color = "red";
             }
           })
