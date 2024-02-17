@@ -51,5 +51,6 @@ db.sequelize = sequelize; // db = {sequlize:sequelize} //+ db에 시퀄라이즈
 db.Sequelize = Sequelize; // db = {sequelize:sequelize, Sequelize:Sequelize}
 
 db.Visitor = require("./Visitor")(sequelize, Sequelize);
+db.User = require("./User")(sequelize, Sequelize); //! 추가하는 거 잊지 말자...
 module.exports = db;
 // db라는 변수를 내보내기 하는 중

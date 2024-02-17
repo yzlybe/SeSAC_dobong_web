@@ -16,13 +16,17 @@ app.use(express.json());
 const indexRouter = require("./routes"); // const indexRouter = require("./routes/index");
 app.use("/", indexRouter);
 
+const userRouter = require("./routes/user");
+app.use("/user", userRouter);
+
 // 404 error
 app.get("*", (req, res) => {
   res.render("404");
 });
 
 db.sequelize.sync({ force: false }).then((result) => {
-  console.log("DB 연결 성공");
+  // console.log(result) //+ 동기화 결과에 대한 정보 출력
+  console.log("DB 연결 성공"); //+ 동기화 완료 후 출력
 });
 
 app.listen(PORT, () => {
