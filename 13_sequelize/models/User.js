@@ -17,6 +17,7 @@
 //   name VARCHAR(10) NOT NULL,
 //   pw VARCHAR(20) NOT NULL
 // );
+
 const User = function (Sequelize, DataTypes) {
   const model = Sequelize.define(
     "User",
@@ -51,6 +52,47 @@ const User = function (Sequelize, DataTypes) {
 };
 
 module.exports = User;
+
+/*
+// 실습 해답
+const User = function (Sequelize, DataTypes) {
+  return Sequelize.define(
+    "User",
+    {
+      // 컬럼 정의
+      // id INT NOT NULL PRIMARY KEY AUTO_INCREMENT
+      id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      // userid VARCHAR(20) NOT NULL
+      userid: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
+      },
+      // name VARCHAR(20) NOT NULL
+      name: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
+      },
+      // pw VARCHAR(20) NOT NULL
+      pw: {
+        type: DataTypes.STRING(20),
+        allowNull: false,
+      },
+    },
+    {
+      tableName: "user",
+      freezeTableName: true,
+      timestamps: false,
+    }
+  );
+};
+
+module.exports = User;
+*/
 
 /* 
 1. 뷰에서 요청

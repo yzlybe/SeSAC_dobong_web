@@ -32,3 +32,5 @@ db.sequelize.sync({ force: false }).then((result) => {
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
 });
+
+// 실습 해답 생략
