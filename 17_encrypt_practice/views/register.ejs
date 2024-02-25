@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <%- include('include/head', {title: '회원가입 페이지'})%>
+  <body>
+    <h1>회원가입</h1>
+    <form name="form_register">
+      <label for="userid">ID</label>
+      <input id="userid" type="text" name="userid" required /><br />
+      <label for="password">Password</label>
+      <input id="password" type="password" name="pw" required /><br />
+      <label for="name">Name </label>
+      <input id="name" type="text" name="name" required /><br />
+      <button type="button" onclick="register();">Register</button>
+    </form>
+    <a href="/login">로그인 페이지로</a>
+    <a href="/">홈으로</a>
+
+    <script>
+      async function register() {
+        const form = document.forms["form_register"];
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const response = await axios({
+          url: "/register",
+          method: "POST",
+          data: {
+            userid: form.userid.value,
+            pw: form.pw.value,
+            name: form.name.value,
+          },
+        });
+
+        if (response.data) {
+          console.log("응답 데이터", response.data);
+          alert("회원가입 성공");
+
+          // 가입 성공 시, 로그인 페이지로 이동
+          document.location.href = "/login";
+        } else {
+          alert("회원가입 실패");
+        }
+      }
+    </script>
+  </body>
+</html>

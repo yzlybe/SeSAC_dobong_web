@@ -1,0 +1,58 @@
+<!-- 회원 정보 수정, 회원 탈퇴 -->
+<!DOCTYPE html>
+<html lang="ko">
+  <%- include('include/head', {title: '프로필 페이지'})%>
+  <body>
+    <a href="/">HOME</a>
+    <p>ID는 변경할 수 없습니다.</p>
+
+    <form name="form_profile">
+      <label for="userid">ID</label>
+      <input
+        id="userid"
+        type="text"
+        name="userid"
+        value="<%=data.userid%>"
+        readonly
+      /><br />
+      <label for="password">Password</label>
+      <input id="password" type="password" name="pw" required /><br />
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name" required /><br />
+      <button type="button" onclick="profileEdit();">Edit</button>
+      <button type="button" onclick="profileDelete();">Delete</button>
+    </form>
+
+    <script>
+      // 프로필 수정
+      async function profileEdit() {
+        const form = document.forms["form_profile"];
+        const response = await axios({
+          url: "/profile/edit",
+          method: "POST",
+          data: {
+            pw: form.pw.value,
+            name: form.name.value,
+            userid: form.userid.value,
+          },
+        });
+        alert("수정 완료");
+      }
+
+      // 프로필 삭제
+      async function profileDelete() {
+        const form = document.forms["form_profile"];
+
+        const response = axios({
+          url: "/profile/delete",
+          method: "POST",
+          data: {
+            userid: form.userid.value,
+          },
+        });
+        alert("회원 정보 삭제 완료");
+        document.location.href = "/";
+      }
+    </script>
+  </body>
+</html>
