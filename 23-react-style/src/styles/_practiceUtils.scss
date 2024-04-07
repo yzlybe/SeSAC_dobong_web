@@ -1,0 +1,26 @@
+$color-pink: #ffa1a6;
+$color-yellow: #ffd754;
+$color-green: #b6ff8d;
+
+@mixin circle($circleColor, $circleMove) {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: relative;
+  background-color: $circleColor;
+  animation: moveCircle 3s ease 1s infinite normal;
+  @keyframes moveCircle {
+    0% {
+      transform: translateX($circleMove);
+    }
+    25% {
+      transform: translateY($circleMove);
+    }
+    50% {
+      left: $circleMove;
+    }
+    100% {
+      top: $circleMove;
+    }
+  }
+}

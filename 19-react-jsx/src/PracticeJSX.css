@@ -1,0 +1,14 @@
+.prac4 {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  background-color: bisque;
+  color: brown;
+  font-size: large;
+}
