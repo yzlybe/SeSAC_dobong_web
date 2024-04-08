@@ -8,7 +8,7 @@ import MatzipHeader from "../components/practice/MatzipHeader";
 const Inner = styled.div`
   max-width: 1000px;
   margin: 0 auto;
-  pad: 1rem 0.5rem;
+  padding: 1rem 0.5rem;
   background-color: cornsilk;
 `;
 const GridDiv = styled.div`
