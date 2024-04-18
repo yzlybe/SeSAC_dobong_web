@@ -29,6 +29,32 @@ export default function Practice1() {
       setFromServerStr("server: " + message);
     });
   }
+  /*+ 이렇게 작동하는 것도 가능하다
+  useEffect(() => {
+    initSocketConnect();
+
+    socket.on("hello2", (message) => {
+      setFromServerStr("server: " + message);
+    });
+    socket.on("study2", (message) => {
+      setFromServerStr("server: " + message);
+    });
+    socket.on("bye2", (message) => {
+      setFromServerStr("server: " + message);
+    });
+  }, []);
+
+  function hello() {
+    socket.emit("hello", "hello");
+  }
+  function study() {
+    socket.emit("study", "study");
+  }
+  function bye() {
+    socket.emit("bye", "bye");
+  }
+  */
+
   return (
     <>
       <button onClick={hello}>hello</button>
